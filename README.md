@@ -20,6 +20,8 @@ mun \
 commands:
     sass-preprocessor: npx sass -w --no-source-map src/styles:static/styles
     ts-compiller: npx tsc -w
+settings:
+    color: both
 ```
 
 ### Output
