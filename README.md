@@ -1,13 +1,14 @@
 # multirun
+> (under development)
 
-Run multiple terminal commands at the same time
+Run multiple terminal commands at the same time.
 
 ## Usage
 
 ### Commandline
 
 ```bash
-mun \
+mun --color both \
     sass-preprocessor:"npx sass -w --no-source-map src/styles:static/styles" \
     ts-compiller:"npx tsc -w"
 ```
@@ -35,6 +36,13 @@ ts-compiller      | [4:03:09 PM] Found 0 errors. Watching for file changes.
 
 ## Settings
 
-| Argument | Description                               | Type                             |
-| -------- | ----------------------------------------- | -------------------------------- |
-| `color`  | Select when the command should use colors | `none`, `mun`, `command`, `both` |
+### `color`
+> Optional. Default: `both`
+
+Select when the command should use colors in the terminal.
+
+Possible values are:
+ - `"none"`: the output will contain no colors at all;
+ - `"mun"`: the output will contain colors only from the mun;
+ - `"command"`: the output will contain colors only from the running command;
+ - `"both"`: the output will contain colors from both mun and running command.
