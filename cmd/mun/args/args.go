@@ -21,7 +21,7 @@ func ExtractConfig(args []string) (*config.Config, error) {
 }
 
 func ExtractSettingsField(args []string) (config.Settings, error) {
-	color, err := colorArgument.ExtractFrom(args)
+	color, err := ColorArgument.ExtractFrom(args)
 	if err != nil {
 		return config.Settings{}, err
 	}

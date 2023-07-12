@@ -2,7 +2,7 @@ package args
 
 import "github.com/D1360-64RC14/multirun/internal"
 
-var colorArgument = internal.Argument{
+var ColorArgument = internal.Argument{
 	Name:     "--color",
 	Required: false,
 	Default:  "both",
