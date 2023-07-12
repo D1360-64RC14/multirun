@@ -27,8 +27,8 @@ func main() {
 
 	switch config.Settings.Color {
 	case "both":
-	default:
 		printer = prn.NewColoredPrinter(commandNames)
+	default:
 		printer = prn.NewGrayPrinter(commandNames)
 	}
 
