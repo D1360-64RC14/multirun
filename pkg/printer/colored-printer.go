@@ -12,8 +12,8 @@ import (
 var _ Printer = (*ColoredPrinter)(nil)
 
 type DescribedColor struct {
-	attribute color.Attribute
-	color     *color.Color
+	Attribute color.Attribute
+	Color     *color.Color
 }
 
 type ColoredPrinter struct {
@@ -48,8 +48,8 @@ func NewColoredPrinter(possibleNames []string) *ColoredPrinter {
 		// assign name with color
 		colorIndex := i % len(Colors)
 		printer.nameColorPairs[possibleName] = DescribedColor{
-			attribute: Colors[colorIndex],
-			color:     color.New(Colors[colorIndex]),
+			Attribute: Colors[colorIndex],
+			Color:     color.New(Colors[colorIndex]),
 		}
 	}
 
@@ -61,7 +61,7 @@ func (p *ColoredPrinter) Println(name string, content string) (int, error) {
 }
 
 func (p *ColoredPrinter) Fprintln(w io.Writer, name, content string) (int, error) {
-	colorToUse := p.GetColorFor(name).color
+	colorToUse := p.GetColorFor(name).Color
 
 	bytesWritten, err := fmt.Fprintf(
 		w,
