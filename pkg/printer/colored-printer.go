@@ -46,11 +46,7 @@ func NewColoredPrinter(possibleNames []string) *ColoredPrinter {
 }
 
 func (p *ColoredPrinter) Println(name string, content string) {
-	colorToUse, ok := p.nameColorPairs[name]
-
-	if !ok {
-		colorToUse = color.New(DefaultColor)
-	}
+	colorToUse := p.GetColorFor(name)
 
 	fmt.Printf(
 		"%-[1]*[2]s | %[3]s",
@@ -58,4 +54,14 @@ func (p *ColoredPrinter) Println(name string, content string) {
 		colorToUse.Sprint(name),
 		content,
 	)
+}
+
+func (p *ColoredPrinter) GetColorFor(name string) *color.Color {
+	colorToUse, ok := p.nameColorPairs[name]
+
+	if !ok {
+		colorToUse = color.New(DefaultColor)
+	}
+
+	return colorToUse
 }
