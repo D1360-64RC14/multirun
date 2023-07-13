@@ -63,11 +63,16 @@ func (p *ColoredPrinter) Println(name string, content string) (int, error) {
 func (p *ColoredPrinter) Fprintln(w io.Writer, name, content string) (int, error) {
 	colorToUse := p.GetColorFor(name).Color
 
-	bytesWritten, err := fmt.Fprintf(
-		w,
-		"%-[1]*[2]s | %[3]s\n",
+	flag := fmt.Sprintf(
+		"%-[1]*[2]s |",
 		p.maxNameSize,
 		colorToUse.Sprint(name),
+	)
+
+	bytesWritten, err := fmt.Fprintf(
+		w,
+		"%s %s\n",
+		flag,
 		content,
 	)
 	if err != nil {
