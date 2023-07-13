@@ -8,7 +8,12 @@ import (
 	"github.com/D1360-64RC14/multirun/cmd/mun/args"
 	"github.com/D1360-64RC14/multirun/config"
 	prn "github.com/D1360-64RC14/multirun/pkg/printer"
+	"github.com/fatih/color"
 )
+
+func init() {
+	color.NoColor = false
+}
 
 func main() {
 	config, err := loadConfiguration()
@@ -19,7 +24,7 @@ func main() {
 
 	commandNames := make([]string, 0, len(config.Commands))
 
-	for name, _ := range config.Commands {
+	for name := range config.Commands {
 		commandNames = append(commandNames, name)
 	}
 
@@ -31,6 +36,8 @@ func main() {
 	default:
 		printer = prn.NewGrayPrinter(commandNames)
 	}
+
+	var _ = printer
 
 	fmt.Println("TODO: command runner")
 	os.Exit(1)
