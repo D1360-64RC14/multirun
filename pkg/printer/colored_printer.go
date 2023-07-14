@@ -34,7 +34,7 @@ var Colors = [...]color.Attribute{
 
 func NewColoredPrinter(possibleNames []string) *ColoredPrinter {
 	printer := &ColoredPrinter{
-		maxNameSize:    len(possibleNames[0]),
+		maxNameSize:    0,
 		nameColorPairs: make(map[string]DescribedColor, len(possibleNames)),
 		defaultColor:   DescribedColor{color.FgWhite, color.New(color.FgWhite)},
 	}

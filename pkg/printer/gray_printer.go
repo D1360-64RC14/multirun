@@ -18,7 +18,7 @@ type GrayPrinter struct {
 
 func NewGrayPrinter(possibleNames []string) *GrayPrinter {
 	printer := &GrayPrinter{
-		maxNameSize:  len(possibleNames[0]),
+		maxNameSize:  0,
 		defaultColor: DescribedColor{color.FgWhite, color.New(color.FgWhite)},
 	}
 

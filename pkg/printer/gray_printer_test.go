@@ -14,6 +14,27 @@ func init() {
 	color.NoColor = false
 }
 
+func TestGrayPrinter_NameCount(t *testing.T) {
+	testCases := [][]string{
+		{},
+		{"test"},
+		{"test1", "test2"},
+		{"test1", "test2", "test3"},
+	}
+
+	for i, _case := range testCases {
+		t.Run(fmt.Sprintf("case_%d", i), func(t *testing.T) {
+			_ = prn.NewGrayPrinter(_case)
+
+			defer func() {
+				if r := recover(); r != nil {
+					t.Errorf("Should not have panicked, got '%v'", r)
+				}
+			}()
+		})
+	}
+}
+
 func TestGrayPrinter_Fprintln_PerfectCases(t *testing.T) {
 	testCases := []struct {
 		inputName      string
