@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 
 	"github.com/fatih/color"
 )
@@ -23,7 +24,7 @@ type ColoredPrinter struct {
 }
 
 var Colors = [...]color.Attribute{
-	color.FgWhite,
+	// color.FgWhite,
 	color.FgGreen,
 	color.FgCyan,
 	color.FgYellow,
@@ -62,6 +63,9 @@ func (p *ColoredPrinter) Println(name string, content string) (int, error) {
 
 func (p *ColoredPrinter) Fprintln(w io.Writer, name, content string) (int, error) {
 	colorToUse := p.GetColorFor(name).Color
+
+	// Remove console clear characters
+	content = strings.ReplaceAll(content, "\x1bc", "")
 
 	flag := colorToUse.Sprintf(
 		"%-[1]*[2]s |",
