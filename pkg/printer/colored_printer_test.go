@@ -45,32 +45,32 @@ func TestColoredPrinter_Fprintln_PerfectCases(t *testing.T) {
 		{
 			"Name 1",
 			"Hello World",
-			fmt.Sprintf("%s %s\n", color.New(color.FgWhite).Sprint("Name 1 |"), "Hello World"),
-			color.FgWhite,
-		},
-		{
-			"Name 3",
-			"This is fine",
-			fmt.Sprintf("%s %s\n", color.New(color.FgCyan).Sprint("Name 3 |"), "This is fine"),
-			color.FgCyan,
-		},
-		{
-			"Name 1",
-			"Lorem ipsum",
-			fmt.Sprintf("%s %s\n", color.New(color.FgWhite).Sprint("Name 1 |"), "Lorem ipsum"),
-			color.FgWhite,
-		},
-		{
-			"Name 2",
-			"Dolor sit amet",
-			fmt.Sprintf("%s %s\n", color.New(color.FgGreen).Sprint("Name 2 |"), "Dolor sit amet"),
+			fmt.Sprintf("%s %s\n", color.New(color.FgGreen).Sprint("Name 1 |"), "Hello World"),
 			color.FgGreen,
 		},
 		{
 			"Name 3",
-			"Consectetur adipiscing elit",
-			fmt.Sprintf("%s %s\n", color.New(color.FgCyan).Sprint("Name 3 |"), "Consectetur adipiscing elit"),
+			"This is fine",
+			fmt.Sprintf("%s %s\n", color.New(color.FgYellow).Sprint("Name 3 |"), "This is fine"),
+			color.FgYellow,
+		},
+		{
+			"Name 1",
+			"Lorem ipsum",
+			fmt.Sprintf("%s %s\n", color.New(color.FgGreen).Sprint("Name 1 |"), "Lorem ipsum"),
+			color.FgGreen,
+		},
+		{
+			"Name 2",
+			"Dolor sit amet",
+			fmt.Sprintf("%s %s\n", color.New(color.FgCyan).Sprint("Name 2 |"), "Dolor sit amet"),
 			color.FgCyan,
+		},
+		{
+			"Name 3",
+			"Consectetur adipiscing elit",
+			fmt.Sprintf("%s %s\n", color.New(color.FgYellow).Sprint("Name 3 |"), "Consectetur adipiscing elit"),
+			color.FgYellow,
 		},
 	}
 
@@ -117,20 +117,20 @@ func TestColoredPrinter_Fprintln_LineSizes(t *testing.T) {
 		{
 			"typescript-compiler",
 			"npx tsc -w",
-			fmt.Sprintf("%s %s\n", color.New(color.FgGreen).Sprint("typescript-compiler |"), "npx tsc -w"),
-			color.FgGreen,
+			fmt.Sprintf("%s %s\n", color.New(color.FgCyan).Sprint("typescript-compiler |"), "npx tsc -w"),
+			color.FgCyan,
 		},
 		{
 			"lorem-gen",
 			"lipsum",
-			fmt.Sprintf("%s %s\n", color.New(color.FgWhite).Sprint("lorem-gen           |"), "lipsum"),
-			color.FgWhite,
+			fmt.Sprintf("%s %s\n", color.New(color.FgGreen).Sprint("lorem-gen           |"), "lipsum"),
+			color.FgGreen,
 		},
 		{
 			"the-preprocessor",
 			"npx sass -w --no-source-map src/styles:static/styles",
-			fmt.Sprintf("%s %s\n", color.New(color.FgCyan).Sprint("the-preprocessor    |"), "npx sass -w --no-source-map src/styles:static/styles"),
-			color.FgCyan,
+			fmt.Sprintf("%s %s\n", color.New(color.FgYellow).Sprint("the-preprocessor    |"), "npx sass -w --no-source-map src/styles:static/styles"),
+			color.FgYellow,
 		},
 	}
 
@@ -177,14 +177,14 @@ func TestColoredPrinter_Fprintln_InvalidNames(t *testing.T) {
 		{
 			"Name 1",
 			"Hello World",
-			fmt.Sprintf("%s %s\n", color.New(color.FgWhite).Sprint("Name 1 |"), "Hello World"),
-			color.FgWhite,
+			fmt.Sprintf("%s %s\n", color.New(color.FgGreen).Sprint("Name 1 |"), "Hello World"),
+			color.FgGreen,
 		},
 		{
 			"Name 3",
 			"This is fine",
-			fmt.Sprintf("%s %s\n", color.New(color.FgCyan).Sprint("Name 3 |"), "This is fine"),
-			color.FgCyan,
+			fmt.Sprintf("%s %s\n", color.New(color.FgYellow).Sprint("Name 3 |"), "This is fine"),
+			color.FgYellow,
 		},
 		{
 			"An invalid name",
@@ -195,8 +195,8 @@ func TestColoredPrinter_Fprintln_InvalidNames(t *testing.T) {
 		{
 			"Name 2",
 			"Dolor sit amet",
-			fmt.Sprintf("%s %s\n", color.New(color.FgGreen).Sprint("Name 2 |"), "Dolor sit amet"),
-			color.FgGreen,
+			fmt.Sprintf("%s %s\n", color.New(color.FgCyan).Sprint("Name 2 |"), "Dolor sit amet"),
+			color.FgCyan,
 		},
 		{
 			"other",
